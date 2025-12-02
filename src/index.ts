@@ -3,7 +3,12 @@ import type { Context, Next } from "hono";
 
 export type Env = CloudflareBindings;
 
+
 const app = new Hono<{ Bindings: Env }>();
+
+app.get('/', (c) => {
+  return c.text('Hello Hono ⚡⚡⚡!')
+})
 
 app.get("/", (c) => c.text("Hello from Hono on Cloudflare Workers ⚡⚡⚡"));
 
